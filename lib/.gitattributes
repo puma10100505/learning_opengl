@@ -1,0 +1,16 @@
+glfw3.lib filter=lfs diff=lfs merge=lfs -text
+SOIL.lib filter=lfs diff=lfs merge=lfs -text
+imgui_impl_glfw.cpp filter=lfs diff=lfs merge=lfs -text
+libassimp.a filter=lfs diff=lfs merge=lfs -text
+stb_image.cpp filter=lfs diff=lfs merge=lfs -text
+imgui.cpp filter=lfs diff=lfs merge=lfs -text
+imgui_draw.cpp filter=lfs diff=lfs merge=lfs -text
+imgui_impl_opengl3.cpp filter=lfs diff=lfs merge=lfs -text
+libglad_linux.a filter=lfs diff=lfs merge=lfs -text
+libglad_macos.a filter=lfs diff=lfs merge=lfs -text
+assimp.lib filter=lfs diff=lfs merge=lfs -text
+glew32s.lib filter=lfs diff=lfs merge=lfs -text
+imgui_demo.cpp filter=lfs diff=lfs merge=lfs -text
+imgui_widgets.cpp filter=lfs diff=lfs merge=lfs -text
+libIrrXML.a filter=lfs diff=lfs merge=lfs -text
+libglad.a filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,5 @@
+assimp-4.1.0.zip filter=lfs diff=lfs merge=lfs -text
+glad-master.zip filter=lfs diff=lfs merge=lfs -text
+glew-master.zip filter=lfs diff=lfs merge=lfs -text
+glfw-3.2.1.zip filter=lfs diff=lfs merge=lfs -text
+imgui-master.zip filter=lfs diff=lfs merge=lfs -text

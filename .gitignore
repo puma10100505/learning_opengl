@@ -12,5 +12,3 @@ dep/.DS_Store
 *.bin
 tools/
 build/
-lib/
-dep/
