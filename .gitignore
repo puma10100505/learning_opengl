@@ -1,0 +1,16 @@
+CMakeFiles/
+CMakeCache.txt
+Makefile
+bin/gl_depth_testing
+.DS_Store
+bin/gl_model
+bin/gl_multilights
+bin/gl_stencil_testing
+bin/imgui.ini
+dep/.DS_Store
+*.cmake
+*.bin
+tools/
+build/
+lib/
+dep/

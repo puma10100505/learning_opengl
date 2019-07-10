@@ -1,0 +1,1 @@
+g++ -o main ./main.cpp ../lib/*.cpp -I/usr/local/include -I../include/imgui -I../include -I.  -L/usr/local/lib -L../lib/ -lglfw -lglad -ldl  --std=c++11

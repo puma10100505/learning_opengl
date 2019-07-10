@@ -1,0 +1,1 @@
+g++ -O2 -g -o main ./main.cpp ../lib/*.cpp ../include/learning/*.cpp -I/usr/local/include -I../include/learning -I../include/imgui -I../include -I.  -L../lib/  -L/usr/local/lib -lglfw -lglad -ldl  --std=c++11
