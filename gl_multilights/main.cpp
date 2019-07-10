@@ -52,7 +52,7 @@ int main() {
         }, 
         
         [&]() -> void {
-            ImGui::Begin(u8"材质 & 光照 & Camera");                          // Create a window called "Hello, world!" and append into it.
+            ImGui::Begin(u8"Material & Light & Camera");                          // Create a window called "Hello, world!" and append into it.
 
             ImGui::Text("Material:");               // Display some text (you can use a format strings too)
             ImGui::SliderFloat("material.shininess", &(cube->material.shininess), 0.0f, 256.0f);
@@ -67,18 +67,18 @@ int main() {
 
             ImGui::Text("Light - Point:");
             ImGui::DragFloat3("point-light.position", (float*)&(mainScene.FirstPointLight()->transform.position), .1f);
-            ImGui::SliderFloat("point-light.constant", (float*)&(mainScene.FirstPointLight()->constant), 0.001f, 1.0f);
-            ImGui::SliderFloat("point-light.linear", (float*)&(mainScene.FirstPointLight()->linear), 0.001f, 1.0f);
-            ImGui::SliderFloat("point-light.quadratic", (float*)&(mainScene.FirstPointLight()->quadratic), 0.001f, 1.0f);
+            ImGui::SliderFloat("point-light.constant", (float*)&(mainScene.FirstPointLight()->constant), 0.001f, .1f);
+            ImGui::SliderFloat("point-light.linear", (float*)&(mainScene.FirstPointLight()->linear), 0.001f, .1f);
+            ImGui::SliderFloat("point-light.quadratic", (float*)&(mainScene.FirstPointLight()->quadratic), 0.001f, .1f);
 
             ImGui::Text("Light - Spot:");
             ImGui::DragFloat3("spot-light.direction", (float*)&(mainScene.FirstSpotLight()->direction), .1f);
             ImGui::DragFloat3("spot-light.position", (float*)&(mainScene.FirstSpotLight()->transform.position), .1f);
             ImGui::SliderFloat("spot-light.cutoff", &(mainScene.FirstSpotLight()->cutoff), 0.0f, 179.0f);
             ImGui::SliderFloat("spot-light.outerCutoff", &(mainScene.FirstSpotLight()->outerCutoff), 0.0f, 179.0f);
-            ImGui::SliderFloat("spot-light.constant", (float*)&(mainScene.FirstSpotLight()->constant), 0.001f, 1.0f);
-            ImGui::SliderFloat("spot-light.linear", (float*)&(mainScene.FirstSpotLight()->linear), 0.001f, 1.0f);
-            ImGui::SliderFloat("spot-light.quadratic", (float*)&(mainScene.FirstSpotLight()->quadratic), 0.001f, 1.0f);
+            ImGui::SliderFloat("spot-light.constant", (float*)&(mainScene.FirstSpotLight()->constant), 0.001f, .1f);
+            ImGui::SliderFloat("spot-light.linear", (float*)&(mainScene.FirstSpotLight()->linear), 0.001f, .1f);
+            ImGui::SliderFloat("spot-light.quadratic", (float*)&(mainScene.FirstSpotLight()->quadratic), 0.001f, .1f);
 
             ImGui::Text("Transform:");
             ImGui::DragFloat3("transform.position", (float*)&(cube->transform.position), .1f);

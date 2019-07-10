@@ -71,23 +71,21 @@ void main()
     result += CalculateSpotLight(spotLight, norm, FragPos, viewDir);
 
     // 正常
-    // FragColor = vec4(result, 1.0);
+    FragColor = vec4(result, 1.0);
 
     // 反色
-    // FragColor = vec4(vec3(1.0, 1.0, 1.0) - result, 1.0);
+    FragColor = vec4(vec3(1.0, 1.0, 1.0) - result, 1.0);
 
     // 灰度
-    // float avg = (result.r + result.g + result.b) / 3.0;
-    // FragColor = vec4(avg, avg, avg, 1.0);
+    float avg = (result.r + result.g + result.b) / 3.0;
+    FragColor = vec4(avg, avg, avg, 1.0);
 
     // 加权平均后的灰度
     // float avg = 0.2126 * result.r + 0.7152 * result.g + 0.0722 * result.b;
     // FragColor = vec4(avg, avg, avg, 1.0);
 
-    
-
     // Visualize the depth buffer
-    // FragColor = vec4(vec3(gl_FragCoord.z), 1.0);
+    //FragColor = vec4(vec3(gl_FragCoord.z), 1.0);
 }
 
 vec3 CalculateDirectionLight(DirectionLight light, vec3 normal, vec3 viewDir) 
