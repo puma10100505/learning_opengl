@@ -37,7 +37,7 @@ int main() {
     Shader model_shader((app_base_dir + "/shaders/multilights.object.vs").c_str(), 
         (app_base_dir + "/shaders/multilights.object.fs").c_str());
     // Shader model_shader("../shaders/model.vs", "../shaders/model.fs");
-    GLModel our_model(app_base_dir + "/resources/objects/nanosuit/nanosuit.obj");
+    GLModel our_model(app_base_dir + "resources/objects/nanosuit/nanosuit.obj");
     // GLModel our_model(app_base_dir + "/resources/objects/monkey.fbx");
 
     glm::mat4 model = glm::mat4(1.0f);
