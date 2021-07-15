@@ -11,4 +11,6 @@ dep/.DS_Store
 *.cmake
 *.bin
 tools/
-build/
+build
+bin
+
