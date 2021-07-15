@@ -23,18 +23,18 @@ int main() {
     }
 
     // create a new window
-    if (gl_create_window("sample window", true) < 0) {
+    if (gl_create_window(WINDOW_WIDTH, WINDOW_HEIGHT, "sample window", true) < 0) {
         std::cout << "create window failed\n"; 
         return -2;
     }
 
     // 1. prepare content to be rendered
-    GLCube q;
+    GLCubic q;
     GLCamera c(glm::vec3(0.0f, 6.0f, 0.0f));
 
     // 2. prepare textures
-    GLTexture tex("../resources/container.jpg", GL_TEXTURE0, GL_RGB);
-    GLTexture tex2("../resources/awesomeface.png", GL_TEXTURE1, GL_RGBA);
+    GLTexture tex("../resources/container.jpg", GL_TEXTURE0);
+    GLTexture tex2("../resources/awesomeface.png", GL_TEXTURE1);
 
     // 3. prepare shader
     Shader shader("../shaders/main.shader.vs", "../shaders/main.shader.fs");
@@ -107,9 +107,6 @@ int main() {
             ImGui::End();
         }
 
-        // Rendering
-        ImGui::Render();
-
         tex.Active();
         tex2.Active();
         shader.use();
@@ -133,8 +130,11 @@ int main() {
 
         q.Draw();
 
+        // Rendering
+        ImGui::Render();
+        ImGui::EndFrame();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-    }, color); 
+    }); 
 
    q.Destroy();
 

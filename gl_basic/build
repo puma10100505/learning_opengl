@@ -1,1 +1,1 @@
-g++ -o main ./main.cpp ../lib/*.cpp -I/usr/local/include -I../include -I../include/imgui -I.  -L/usr/local/lib -lglfw -lglad -ldl  --std=c++11
+g++ -o main ./main.cpp ../lib/*.c ../lib/*.cpp ../include/learning/*.cpp -I/usr/local/include -I../include -I../include/imgui -I. -L../lib/ -L/usr/local/lib   -lglfw3 -lassimp -lIrrXML -lz -lXi -lXrandr -lXxf86vm -lXinerama -lXcursor -lrt -lm -lglad -lX11 -lGLU -lGL -lpthread -ldl --std=c++17 
