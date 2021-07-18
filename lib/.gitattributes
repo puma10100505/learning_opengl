@@ -14,3 +14,7 @@ imgui_demo.cpp filter=lfs diff=lfs merge=lfs -text
 imgui_widgets.cpp filter=lfs diff=lfs merge=lfs -text
 libIrrXML.a filter=lfs diff=lfs merge=lfs -text
 libglad.a filter=lfs diff=lfs merge=lfs -text
+libglfw3.a filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
+win64 filter=lfs diff=lfs merge=lfs -text
+macos filter=lfs diff=lfs merge=lfs -text

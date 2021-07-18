@@ -1,4 +1,6 @@
-#include <unistd.h>
+#ifdef __linux__
+    #include <unistd.h>
+#endif 
 #include <cstdio>
 #include <functional>
 #include <iostream>
