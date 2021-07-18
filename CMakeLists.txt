@@ -3,13 +3,13 @@ cmake_minimum_required(VERSION 2.8...3.13)
 project(learning_opengl)
 
 if (APPLE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g -O2 -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
 elseif (UNIX OR WIN32)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g -O2")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2")
 endif()
 
-
 set(solution_root ${CMAKE_CURRENT_SOURCE_DIR})
+
 
 include_directories(
     /usr/local/include

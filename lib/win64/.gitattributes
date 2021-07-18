@@ -1,0 +1,8 @@
+glfw3.lib filter=lfs diff=lfs merge=lfs -text
+zlibd.exp filter=lfs diff=lfs merge=lfs -text
+zlibd.lib filter=lfs diff=lfs merge=lfs -text
+zlibd.pdb filter=lfs diff=lfs merge=lfs -text
+zlibstaticd.lib filter=lfs diff=lfs merge=lfs -text
+IrrXMLd.lib filter=lfs diff=lfs merge=lfs -text
+assimp-vc142-mtd.lib filter=lfs diff=lfs merge=lfs -text
+assimp-vc142-mtd.pdb filter=lfs diff=lfs merge=lfs -text
