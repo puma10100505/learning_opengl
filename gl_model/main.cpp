@@ -36,10 +36,10 @@ int main() {
 
 
     GLScene mainScene(glm::vec3(0.0f, -1.70f, 6.0f));
-    Shader model_shader((app_base_dir + "/shaders/multilights.object.vs").c_str(), 
-        (app_base_dir + "/shaders/multilights.object.fs").c_str());
+    Shader model_shader((app_base_dir + "assets/shaders/multilights.object.vs").c_str(), 
+        (app_base_dir + "assets/shaders/multilights.object.fs").c_str());
     // Shader model_shader("../shaders/model.vs", "../shaders/model.fs");
-    GLModel our_model(app_base_dir + "resources/objects/nanosuit/nanosuit.obj");
+    GLModel our_model(app_base_dir + "assets/meshes/nanosuit/nanosuit.obj");
     // GLModel our_model(app_base_dir + "/resources/objects/monkey.fbx");
 
     glm::mat4 model = glm::mat4(1.0f);

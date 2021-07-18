@@ -2,7 +2,13 @@ cmake_minimum_required(VERSION 2.8...3.13)
 
 project(learning_opengl)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g -O2 ")
+if (APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g -O2 -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
+elseif (UNIX OR WIN32)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -g -O2")
+endif()
+
+
 set(solution_root ${CMAKE_CURRENT_SOURCE_DIR})
 
 include_directories(
@@ -13,18 +19,36 @@ include_directories(
 )
 
 if (UNIX)
-    find_library(lib_assimp assimp 
-        ${solution_root}/lib
-    )
+    message("Unix....")
+    if (APPLE)
+        message("Apple....")
+        find_library(lib_assimp assimp 
+            ${solution_root}/lib/macos/
+        )
 
-    find_library(lib_glfw glfw3 
-        ${solution_root}/lib 
-    )
+        find_library(lib_glfw glfw3 
+            ${solution_root}/lib/
+        )
 
-    link_directories(
-        ${solution_root}/lib
-        /usr/local/lib 
-    )
+        link_directories(
+            ${solution_root}/lib/macos/
+            /usr/local/lib 
+        )
+    else()
+        message("Linux....")
+        find_library(lib_assimp assimp 
+            ${solution_root}/lib
+        )
+
+        find_library(lib_glfw glfw3 
+            ${solution_root}/lib 
+        )
+
+        link_directories(
+            ${solution_root}/lib
+            /usr/local/lib 
+        )
+    endif()
 elseif (WIN32)
     find_library(lib_glfw glfw3
         ${solution_root}/lib/win64
