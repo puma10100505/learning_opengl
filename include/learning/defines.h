@@ -3,7 +3,7 @@
 
 #include <string>
 
-const std::string app_base_dir = "/Users/yinp/devspace/playground/learning_opengl/";
+const std::string app_base_dir = "D:/Development/mygit/learning_opengl/";
 
 const glm::vec3 __zero = glm::vec3(0.0f, 0.0f, 0.0f);
 const glm::vec3 __one = glm::vec3(1.0f, 1.0f, 1.0f);

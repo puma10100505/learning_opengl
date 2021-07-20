@@ -13,4 +13,4 @@ dep/.DS_Store
 tools/
 build
 bin
-
+cmake-build-debug
