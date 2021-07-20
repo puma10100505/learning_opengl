@@ -21,11 +21,6 @@ target_include_directories(${PROJECT_NAME}
     ${PROJECT_SOURCE_DIR}/../include/imgui
 )
 
-target_compile_options(${PROJECT_NAME} 
-    PRIVATE 
-    $<$<PLATFORM_ID: Linux, Darwin>: -O2 -g>
-)
-
 # Extra libraries
 list(APPEND EXTRA_LIBS imgui glad)
 
@@ -38,17 +33,16 @@ if (APPLE)
         libpthread.a
         -lm
         -lstdc++
-        -framework Cocoa
-        -framework OpenGL 
-        -framework IOKit 
-        -framework CoreVideo
         -ldl
     )
 
     target_link_directories(${PROJECT_NAME} 
         PRIVATE 
         ${PROJECT_SOURCE_DIR}/../lib/macos
+        /usr/local/lib
     )
+
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo")
 
 elseif(UNIX)
     list(APPEND EXTRA_LIBS
@@ -88,5 +82,10 @@ elseif (WIN32)
         ${PROJECT_SOURCE_DIR}/../lib/win64
     )
 endif()
+
+target_compile_options(${PROJECT_NAME} 
+    PRIVATE 
+    $<$<PLATFORM_ID: Linux, Darwin>: -O2 -g>
+)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS})

@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.0...3.21)
 
 project(glad)
 
-add_library(glad glad.c)
+add_library(glad STATIC glad.c)
 
 target_include_directories(glad PUBLIC ${CMAKE_SOURCE_DIR}/include)
-
-#target_include_directories(glad INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
