@@ -13,11 +13,6 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/../include/learning/ SRC)
 # Target: 生成可执行文件目标
 add_executable(${PROJECT_NAME} ${SRC})
 
-target_compile_options(${PROJECT_NAME} 
-    PRIVATE 
-    $<$<PLATFORM_ID:"Linux">:-O2 -g>
-)
-
 # 生成可执行文件所需的includes路径
 target_include_directories(${PROJECT_NAME} 
     PRIVATE 
@@ -26,24 +21,35 @@ target_include_directories(${PROJECT_NAME}
     ${PROJECT_SOURCE_DIR}/../include/imgui
 )
 
-# 生成可执行文件所需的libraries路径
-target_link_directories(${PROJECT_NAME} 
+target_compile_options(${PROJECT_NAME} 
     PRIVATE 
-    ${PROJECT_SOURCE_DIR}/../lib/win64
+    $<$<PLATFORM_ID: Linux, Darwin>: -O2 -g>
 )
 
+# Extra libraries
 list(APPEND EXTRA_LIBS imgui glad)
 
 if (APPLE)
     list(APPEND EXTRA_LIBS 
         libassimp.dylib
         libIrrXML.dylib
+        libglfw3.a
         libz.dylib
         libpthread.a
         -lm
         -lstdc++
+        -framework Cocoa
+        -framework OpenGL 
+        -framework IOKit 
+        -framework CoreVideo
         -ldl
     )
+
+    target_link_directories(${PROJECT_NAME} 
+        PRIVATE 
+        ${PROJECT_SOURCE_DIR}/../lib/macos
+    )
+
 elseif(UNIX)
     list(APPEND EXTRA_LIBS
         libassimp.a
@@ -64,6 +70,11 @@ elseif(UNIX)
         -lstdc++
         -ldl
         )
+
+        target_link_directories(${PROJECT_NAME} 
+            PRIVATE 
+            ${PROJECT_SOURCE_DIR}/../lib
+        )
 elseif (WIN32)
     list(APPEND EXTRA_LIBS 
         glfw3.lib 
@@ -71,54 +82,11 @@ elseif (WIN32)
         zlibstaticd.lib
         assimp-vc142-mtd.lib
     )
+
+    target_link_directories(${PROJECT_NAME} 
+        PRIVATE 
+        ${PROJECT_SOURCE_DIR}/../lib/win64
+    )
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS})
-
-# 生成可执行文件目标所需链接的libraries
-# if (APPLE)
-#     target_link_libraries(
-#         ${PROJECT_NAME}
-#         PUBLIC
-#         libassimp.dylib
-#         libIrrXML.dylib
-#         libz.dylib
-#         libpthread.a
-#         -lm
-#         -lstdc++
-#         -ldl
-#     )
-# elseif (UNIX)
-#     target_link_libraries(
-#         ${PROJECT_NAME}
-#         PUBLIC
-#         libassimp.a
-#         libglfw3.a
-#         -lz 
-#         -lXi 
-#         -lXrandr 
-#         -lXxf86vm 
-#         -lXinerama 
-#         -lXcursor 
-#         -lIrrXML
-#         -lrt 
-#         -lm  
-#         -lX11 
-#         -lGLU 
-#         -lGL 
-#         -lpthread
-#         -lstdc++
-#         -ldl
-#     )
-# elseif (WIN32)
-#     target_link_libraries(
-#         ${PROJECT_NAME} 
-#         PUBLIC
-#         glfw3.lib 
-#         IrrXMLd.lib 
-#         zlibstaticd.lib
-#         assimp-vc142-mtd.lib
-#         glad
-#         imgui
-#     )
-# endif()

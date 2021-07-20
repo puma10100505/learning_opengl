@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.0...3.21)
 
+project(imgui)
+
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} imgui_source)
 
-message(${imgui_source})
+#message(${imgui_source})
 
 add_library(imgui ${imgui_source})
 
