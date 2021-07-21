@@ -1,5 +1,6 @@
 #pragma once
 
-#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
-#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@
-#cmakedefine ASSETS_PATH_BASE "@AssetsPathBase@"
+#define LearningOpenGL_VERSION_MAJOR @LearningOpenGL_VERSION_MAJOR@
+#define LearningOpenGL_VERSION_MINOR @LearningOpenGL_VERSION_MINOR@
+
+const std::string project_base_path = "@ASSETS_PATH_BASE@";

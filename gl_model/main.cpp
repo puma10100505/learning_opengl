@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 
+#include "CommonDefines.h"
 #include "learning/learning.h"
 
 int main() {
@@ -36,9 +37,9 @@ int main() {
 
 
     GLScene mainScene(glm::vec3(0.0f, -1.70f, 6.0f));
-    Shader model_shader((app_base_dir + "assets/shaders/multilights.object.vs").c_str(), 
-        (app_base_dir + "assets/shaders/multilights.object.fs").c_str());
-    GLModel our_model(app_base_dir + "assets/meshes/nanosuit/nanosuit.obj");
+    Shader model_shader((project_base_path + "assets/shaders/multilights.object.vs").c_str(), 
+        (project_base_path + "assets/shaders/multilights.object.fs").c_str());
+    GLModel our_model(project_base_path + "assets/meshes/nanosuit/nanosuit.obj");
 
     glm::mat4 model = glm::mat4(1.0f);
     glm::vec3 trans_mat = glm::vec3(0.0f, 0.0f, 0.0f);
