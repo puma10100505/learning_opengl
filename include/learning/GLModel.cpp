@@ -9,6 +9,7 @@ void GLModel::Draw(Shader shader, int draw_mode) {
 
 void GLModel::loadModel(const std::string& path) {
     Assimp::Importer importer;
+    printf("prepare to load model, path: %s\n", path.c_str());
     const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
         std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
@@ -16,6 +17,8 @@ void GLModel::loadModel(const std::string& path) {
     }
 
     directory = path.substr(0, path.find_last_of("/"));
+
+    printf("check the directory: %s\n", directory.c_str());
 
     processNode(scene->mRootNode, scene);
 }
@@ -86,6 +89,7 @@ GLMesh GLModel::processMesh(aiMesh* mesh, const aiScene* scene) {
 
 std::vector<Texture> GLModel::loadMaterialTextures(aiMaterial* material, 
     aiTextureType type, const std::string& typeName) {
+    
     std::vector<Texture> textures;
     for (uint32_t i = 0; i < material->GetTextureCount(type); i++) {
         aiString str;
@@ -107,6 +111,7 @@ std::vector<Texture> GLModel::loadMaterialTextures(aiMaterial* material,
             texture.path = str.C_Str();
             textures.push_back(texture);
             textures_loaded.push_back(texture);
+            std::cout << "typename: " << texture.type << ", path: " + texture.path << std::endl;
         }
     }
 

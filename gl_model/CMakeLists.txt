@@ -89,3 +89,15 @@ target_compile_options(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC ${EXTRA_LIBS})
+
+file(REMOVE_RECURSE ${PROJECT_SOURCE_DIR}/../bin)
+file(MAKE_DIRECTORY ${PROJECT_SOURCE_DIR}/../bin)
+
+# add_custom_command(
+#     TARGET ${PROJECT_NAME} POST_BUILD
+#     COMMAND 
+#     ${CMAKE_COMMAND} -E copy 
+#     ${PROJECT_BINARY_DIR}/Debug/${PROJECT_NAME}
+#     ${PROJECT_SOURCE_DIR}/../bin/
+
+message("... > ${CMAKE_CURRENT_BINARY_DIR} || ${PROJECT_SOURCE_DIR}")
