@@ -90,6 +90,7 @@ std::vector<Texture> GLModel::loadMaterialTextures(aiMaterial* material,
     for (uint32_t i = 0; i < material->GetTextureCount(type); i++) {
         aiString str;
         material->GetTexture(type, i, &str);
+        std::cout << "load texture: " << str.C_Str() << std::endl;
         bool skip = false;
         for (uint32_t j = 0; j < textures_loaded.size(); j++) {
             if (std::strcmp(textures_loaded[j].path.data(), str.C_Str()) == 0) {

@@ -35,7 +35,7 @@ static inline uint32_t texture_from_file(const char* path, const std::string& di
 
         stbi_image_free(data);
     } else {
-        std::cout << "Texture failed to load\n";
+        std::cout << "Texture failed to load, filename: " << filename << ", path: " << path << std::endl;
         stbi_image_free(data);
     }
 
