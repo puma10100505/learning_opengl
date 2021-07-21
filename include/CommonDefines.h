@@ -3,4 +3,4 @@
 #define LearningOpenGL_VERSION_MAJOR 1
 #define LearningOpenGL_VERSION_MINOR 0
 
-const std::string project_base_path = "D:/Development/mygit/learning_opengl/";
+const std::string solution_base_path = "/Users/yinp/devspace/playground/learning_opengl/";

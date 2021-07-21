@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 
-#include "thirdparty_header.h"
+#include "CommonDefines.h"
 #include "learning/learning.h"
 
 int main() {
@@ -35,23 +35,23 @@ int main() {
 
     GLScene mainScene(__back * 6.0f);
     GLCubic* cube = mainScene.AddCube(
-        app_base_dir + "/shaders/multilights.object.vs", 
-        app_base_dir + "/shaders/multilights.object.fs");
+        solution_base_path + "assets/shaders/multilights.object.vs", 
+        solution_base_path + "assets/shaders/multilights.object.fs");
 
-    cube->SetDiffuseTexture(app_base_dir + "/resources/textures/marble.jpg");
-    cube->SetSpecularTexture(app_base_dir + "/resources/textures/container2_specular.png");
+    cube->SetDiffuseTexture(solution_base_path + "/resources/textures/marble.jpg");
+    cube->SetSpecularTexture(solution_base_path + "/resources/textures/container2_specular.png");
 
-    GLQuad* quad = mainScene.AddQuad(app_base_dir + "/shaders/multilights.object.vs", 
-        app_base_dir + "/shaders/multilights.object.fs");
+    GLQuad* quad = mainScene.AddQuad(solution_base_path + "assets/shaders/multilights.object.vs", 
+        solution_base_path + "assets/shaders/multilights.object.fs");
    
-    quad->SetDiffuseTexture(app_base_dir + "/resources/textures/container2.png");
+    quad->SetDiffuseTexture(solution_base_path + "/resources/textures/container2.png");
 
     GLCubic* cube2 = mainScene.AddCube(
-        app_base_dir + "/shaders/multilights.object.vs", 
-        app_base_dir + "/shaders/multilights.object.fs");
+        solution_base_path + "assets/shaders/multilights.object.vs", 
+        solution_base_path + "assets/shaders/multilights.object.fs");
 
-    cube2->SetDiffuseTexture(app_base_dir + "/resources/textures/marble.jpg");
-    cube2->SetSpecularTexture(app_base_dir + "/resources/textures/container2_specular.png");
+    cube2->SetDiffuseTexture(solution_base_path + "/resources/textures/marble.jpg");
+    cube2->SetSpecularTexture(solution_base_path + "/resources/textures/container2_specular.png");
 
     // glEnable(GL_MULTISAMPLE);
     glEnable(GL_STENCIL_TEST);  // 启用模板缓冲

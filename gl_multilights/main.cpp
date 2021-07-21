@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 
+#include "CommonDefines.h"
 #include "learning/learning.h"
 
 int main() {
@@ -36,15 +37,15 @@ int main() {
 
     GLScene mainScene(__back * 6.0f);
     GLCubic* cube = mainScene.AddCube(
-        app_base_dir + "/shaders/multilights.object.vs", 
-        app_base_dir + "/shaders/multilights.object.fs");
+        solution_base_path + "assets/shaders/multilights.object.vs", 
+        solution_base_path + "assets/shaders/multilights.object.fs");
 
-    cube->SetDiffuseTexture(app_base_dir + "/resources/container2.png");
-    cube->SetSpecularTexture(app_base_dir + "/resources/container2_specular.png");
+    cube->SetDiffuseTexture(solution_base_path + "resources/container2.png");
+    cube->SetSpecularTexture(solution_base_path + "resources/container2_specular.png");
 
-    GLQuad* quad = mainScene.AddQuad(app_base_dir + "/shaders/multilights.object.vs", 
-        app_base_dir + "/shaders/multilights.object.fs");
-    quad->SetDiffuseTexture(app_base_dir + "/resources/container2.png");
+    GLQuad* quad = mainScene.AddQuad(solution_base_path + "assets/shaders/multilights.object.vs", 
+        solution_base_path + "assets/shaders/multilights.object.fs");
+    quad->SetDiffuseTexture(solution_base_path + "resources/container2.png");
 
     gl_window_loop(
         [&]() -> void{

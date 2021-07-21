@@ -13,13 +13,14 @@
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
+#include "CommonDefines.h"
 #include "learning/learning.h"
 
 
 /////////////////////
 
 static MaterialSettings material_parameters;
-static LightSettings light_parameters;
+static PhongModelSettings light_parameters;
 
 static glm::vec3 camera_pos = glm::vec3(0.0f, 6.0f, 0.0f);
 static Camera_Movement camera_direction;
@@ -49,7 +50,7 @@ static void gl_on_gui() {
     ImGui::SliderFloat("light.outerCutoff", &light_parameters.outerCutoff, 0.0f, 180.0f);
 
     ImGui::Text("Background Color:");
-    ImGui::ColorEdit3("Background Color", (float*)&bgcolor); // Edit 3 floats representing a color
+    ImGui::ColorEdit3("Background Color", (float*)&BackgroundColor); // Edit 3 floats representing a color
 
     ImGui::Text("Camera Settings:");
     if (ImGui::Button("Forward", std::move(ImVec2(100.0f, 20.0f)))) {
@@ -118,13 +119,15 @@ int main() {
 
     // -----------------------
 
-    GLCube cube;
+    GLCubic cube;
     GLLight light_box;
 
     //glm::vec3 light_pos(1.0f, 2.5f, 2.0f);
 
-    Shader light_shader("../shaders/simple.light.vs", "../shaders/simple.light.fs");
-    Shader object_shader("../shaders/simple.object.vs", "../shaders/simple.object.fs");
+    Shader light_shader((solution_base_path + "assets/shaders/simple.light.vs").c_str(), 
+        (solution_base_path + "assets/shaders/simple.light.fs").c_str());
+    Shader object_shader((solution_base_path + "assets/shaders/simple.object.vs").c_str(), 
+        (solution_base_path + "assets/shaders/simple.object.fs").c_str());
 
     object_shader.use();
     object_shader.setVec3("object_color", glm::vec3(1.0f, 0.5f, 0.3f));
@@ -142,8 +145,8 @@ int main() {
     object_shader.setFloat("light.cutoff", light_parameters.cutoff);
     object_shader.setFloat("light.outerCutoff", light_parameters.outerCutoff);
 
-    unsigned int texture_conainer2 = load_texture("../resources/container2.png");
-    unsigned int texture_container2_spec = load_texture("../resources/container2_specular.png");
+    unsigned int texture_conainer2 = load_texture((solution_base_path + "resources/container2.png").c_str());
+    unsigned int texture_container2_spec = load_texture((solution_base_path + "resources/container2_specular.png").c_str());
     object_shader.use();
     // set the texture unit
     object_shader.setInt("material.diffuse", 0);

@@ -10,7 +10,7 @@ void GLModel::Draw(Shader shader, int draw_mode) {
 void GLModel::loadModel(const std::string& path) {
     Assimp::Importer importer;
     printf("prepare to load model, path: %s\n", path.c_str());
-    const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+    const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
     if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
         std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
         return;

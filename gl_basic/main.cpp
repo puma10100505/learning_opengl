@@ -14,6 +14,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "learning/learning.h"
+#include "CommonDefines.h"
 
 int main() {
     // init window
@@ -33,11 +34,12 @@ int main() {
     GLCamera c(glm::vec3(0.0f, 6.0f, 0.0f));
 
     // 2. prepare textures
-    GLTexture tex("../resources/container.jpg", GL_TEXTURE0);
-    GLTexture tex2("../resources/awesomeface.png", GL_TEXTURE1);
+    GLTexture tex(solution_base_path + "/resources/container.jpg", GL_TEXTURE0);
+    GLTexture tex2(solution_base_path + "/resources/awesomeface.png", GL_TEXTURE1);
 
     // 3. prepare shader
-    Shader shader("../shaders/main.shader.vs", "../shaders/main.shader.fs");
+    Shader shader((solution_base_path + "assets/shaders/main.shader.vs").c_str(), 
+        (solution_base_path + "assets/shaders/main.shader.fs").c_str());
 
     shader.use();
     shader.setInt("texture1", 0);
