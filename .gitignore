@@ -8,7 +8,6 @@ bin/gl_multilights
 bin/gl_stencil_testing
 bin/imgui.ini
 dep/.DS_Store
-*.cmake
 *.bin
 tools/
 build
