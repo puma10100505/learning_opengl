@@ -14,3 +14,6 @@ tools/
 build
 bin
 cmake-build-debug
+include/CommonDefines.h
+.vscode
+CommonDefines.h
